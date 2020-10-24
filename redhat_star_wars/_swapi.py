@@ -11,3 +11,10 @@ def get_character_count():
     resp = requests.get(urljoin(SWAPI_URL, "people/"))
     json = resp.json()
     return json["count"]
+
+
+def get_character_by_id(id):
+    """Returns swapi's json for an individual character."""
+    resp = requests.get(urljoin(SWAPI_URL, "people/{id}/".format(id=id)))
+    json = resp.json()
+    return json
