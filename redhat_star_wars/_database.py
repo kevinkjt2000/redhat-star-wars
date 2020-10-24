@@ -15,3 +15,6 @@ class Database:
     def __del__(self):
         self._conn.close()
         del self._conn
+
+    def get_films(self):
+        return [{}]
