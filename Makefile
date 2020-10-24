@@ -6,7 +6,7 @@ run:
 .PHONY: test
 test:
 	poetry run black --check .
-	poetry run pytest -vvv --exitfirst tests/
+	poetry run pytest --cov-branch --cov=redhat_star_wars -vvv --exitfirst tests/
 
 .PHONY: bootstrap
 bootstrap:
