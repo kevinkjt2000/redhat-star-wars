@@ -5,6 +5,7 @@ run:
 
 .PHONY: test
 test:
+	poetry run black --check .
 	poetry run pytest -vvv --exitfirst tests/
 
 .PHONY: bootstrap
