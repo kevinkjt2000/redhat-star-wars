@@ -8,22 +8,22 @@ The main script for completing the assignment is `task_one.py`. It is responsibl
 $ make run
 [
     {
-				"film": "The Empire Strikes Back",
-				"character":
-				[
-						"Luke Skywalker",
-						"C-3PO",
-						...
-				]
-		},
-		...
-		{
-				"film": "Return of the Jedi",
-				"character":
-				[
-				    ...
-				]
-		}
+        "film": "The Empire Strikes Back",
+        "character":
+        [
+            "Luke Skywalker",
+            "C-3PO",
+            ...
+        ]
+    },
+    ...
+    {
+        "film": "Return of the Jedi",
+        "character":
+        [
+            ...
+        ]
+    }
 ]
 ```
 
@@ -44,3 +44,4 @@ make teardown
 ### Future Improvements
 * Adding some configuration options other than a hard-coded database connection to `localhost:3306` with a password that has to be stored in a `.env` file.
 * Configuring `task_one.py` as an entry point in `pyproject.toml`. Perhaps giving it a more descriptive name (random_star_wars_json?).
+* Run `make test` in a CI job and only allow PRs that pass that job to be merged to master branch.
