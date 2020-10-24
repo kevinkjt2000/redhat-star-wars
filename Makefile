@@ -8,6 +8,10 @@ test:
 	poetry run black --check .
 	poetry run pytest --cov-branch --cov=redhat_star_wars -vvv --exitfirst tests/
 
+.PHONY: format
+format:
+	poetry run black .
+
 .PHONY: bootstrap
 bootstrap:
 	@echo > .env

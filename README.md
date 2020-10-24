@@ -35,6 +35,12 @@ make bootstrap  # in theory, this needs to be run only once
 make test
 ```
 
+If you do not have a plugin in your text editor that automatically uses black from poetry's virtual environment, you may want to run format before test:
+
+```
+make format test
+```
+
 When you are satisfied, you can stop any running dockers with:
 
 ```
