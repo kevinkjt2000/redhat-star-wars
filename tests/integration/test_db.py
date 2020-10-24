@@ -1,4 +1,3 @@
-import pytest
 from redhat_star_wars._database import Database
 
 
