@@ -1,3 +1,8 @@
+.PHONY: run
+run:
+	poetry install
+	poetry run python task_one.py
+
 .PHONY: test
 test:
 	poetry run pytest -vvv --exitfirst tests/
