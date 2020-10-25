@@ -41,6 +41,8 @@ If you do not have a plugin in your text editor that automatically uses black fr
 make format test
 ```
 
+You may notice vcr cassette errors if any network interactions are modified. Simply remove the offending cassette yaml file, and rerun the tests to generate a new one. Any network interacting test should have an associated cassette file by using the pytest vcr marker. This allows for running the tests when not connected to the Internet.
+
 When you are satisfied, you can stop any running dockers with:
 
 ```

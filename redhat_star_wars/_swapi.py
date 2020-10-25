@@ -18,3 +18,10 @@ def get_character_by_id(id):
     resp = requests.get(urljoin(SWAPI_URL, "people/{id}/".format(id=id)))
     json = resp.json()
     return json
+
+
+def get_film_by_id(id):
+    """Returns swapi's json for an individual film."""
+    resp = requests.get(urljoin(SWAPI_URL, "films/{id}/".format(id=id)))
+    json = resp.json()
+    return json
