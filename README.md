@@ -53,3 +53,4 @@ make teardown
 * Adding some configuration options other than a hard-coded database connection to `localhost:3306` with a password that has to be stored in a `.env` file.
 * Configuring `task_one.py` as an entry point in `pyproject.toml`. Perhaps giving it a more descriptive name (random_star_wars_json?).
 * Run `make test` in a CI job and only allow PRs that pass that job to be merged to master branch.
+* Utilize sqlalchemy to shorten SQL boiler-plate code.
