@@ -31,7 +31,7 @@ $ make run
 Install python3.8, poetry, docker, GNU Make, and docker-compose. Use the following to test your changes:
 
 ```
-make bootstrap  # in theory, this needs to be run only once
+make bootstrap  # In theory, this needs to be run only once. In practice, I used it to wipe the database.
 make test
 ```
 
