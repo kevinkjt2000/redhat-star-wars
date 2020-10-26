@@ -1,5 +1,5 @@
 # RedHat Technical Assessment - Star Wars
-This is a project I wrote during a weekend to show that I know a few of the common technologies used in a role I interviewed for. Inside, one will find python3, docker, mysql, API calls to https://swapi.dev/, test coverage, and some other things that I found time for.
+This is a project I wrote during a weekend to show that I know a few of the common technologies used in a role I interviewed for. Inside, one will find python3, docker, mysql, API calls to https://swapi.dev/, test coverage, and some other things that I found time for. Approximately 11 hours spent on this, according to my measurements from https://wakatime.com.
 
 ### Usage
 The main script for completing the assignment is `task_one.py`. It is responsible for taking JSON data from SWAPI then caching character names, film titles, and their relation into MySQL. This data is use to print JSON of 15 random characters with the film titles that they participated in. Here is the general shape of the output:
