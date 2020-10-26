@@ -6,7 +6,7 @@ run:
 .PHONY: test
 test:
 	poetry run black --check .
-	poetry run pytest --cov-branch --cov=redhat_star_wars -vvv --exitfirst tests/
+	poetry run pytest --cov-branch --cov=redhat_star_wars --cov-report=term-missing -vvv --exitfirst tests/
 
 .PHONY: format
 format:

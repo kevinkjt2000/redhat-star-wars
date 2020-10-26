@@ -29,3 +29,15 @@ def test_waits_on_mysql_to_be_fully_operational(mock_connect, mock_sleep):
 def test_subsequent_connection_works_since_first_connection_populates_schemas():
     Database()
     Database()
+
+
+def test_characters_already_cached_in_the_database_still_have_their_films_populated_when_returned():
+    db = Database()
+    cursor = db._conn.cursor()
+    cursor.execute("DELETE FROM characters WHERE id = %s", (5,))
+
+    character_uncached = db.get_character_by_id(5)
+    character_cached = db.get_character_by_id(5)
+
+    print(character_uncached, character_cached)
+    assert character_uncached == character_cached

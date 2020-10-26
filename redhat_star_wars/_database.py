@@ -86,8 +86,21 @@ class Database:
                 )
                 character_data["films"].add(film["title"])
             self._conn.commit()
+            character_data["films"] = sorted(character_data["films"])
 
             return character_data
+        else:
+            cursor.execute(
+                """
+                SELECT films.title
+                FROM character_films
+                INNER JOIN films
+                ON character_films.character_id = %s
+                AND character_films.film_id = films.id
+                """,
+                (id,),
+            )
+            row["films"] = sorted([film["title"] for film in cursor])
         return row
 
     def get_film_by_id(self, id):
