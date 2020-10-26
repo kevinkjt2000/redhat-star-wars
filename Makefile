@@ -1,7 +1,7 @@
 .PHONY: run
 run:
 	poetry install
-	poetry run python task_one.py
+	poetry run python redhat_star_wars/task_one.py
 
 .PHONY: test
 test:

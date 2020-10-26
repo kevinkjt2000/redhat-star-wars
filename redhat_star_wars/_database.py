@@ -15,13 +15,31 @@ class Database:
     https://docs.sqlalchemy.org/en/13/orm/
 
     After that, breaking up lengthy functions by separating caching concerns
-    into some other file. Imagine Cache and Database each doing one thing.
+    into some other file. Imagine cache and database each doing one thing.
     Separation of concerns. Single responsibililty principle. task_one.py would
     leverage _swapi directly instead of Database, which would orchestrate
-    cache, database, and swapi_wrapper.
+    cache, database, and swapi_wrapper. In other words:
+
+        1. swapi queries the cache
+            a. if no data
+                1. fetch from swapi_wrapper
+                2. store result to cache
+            b. else return data
+
+    The joining from the relationship table could be a little cleaner as well.
+    Note that character_films is named that way because only the character side
+    of the relationship is fully populated. Some of the films that are fetched
+    have extra characters that are possibly never stored in the database until
+    those characters are fetched. This could be a potential bit of missing data
+    that someone would expect to find if this was a more robust project.
     """
 
     def __init__(self):
+        """Initializes database connection.
+
+        Attempt connecting 10 times at 3 second increments and then apply database
+        schema if it does not exist.
+        """
         for attempt in range(10):
             try:
                 self._conn = mysql.connector.connect(
@@ -80,6 +98,11 @@ class Database:
         del self._conn
 
     def get_character_by_id(self, id):
+        """Fetch database information about a character.
+
+        If that character does not exist yet, it is pulled from swapi and then inserted.
+
+        {"name": "Jar Jar Binks", "films": ["Episode One", "Episode Two", ...], "id": 1}"""
         cursor = self._conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM characters WHERE id = %s", (id,))
         row = cursor.fetchone()
@@ -124,6 +147,11 @@ class Database:
         return row
 
     def get_film_by_id(self, id):
+        """Fetch database information about a film.
+
+        If that film does not exist yet, it is pulled from swapi and then inserted.
+
+        {"title": "Execute Order", "id": 66}"""
         cursor = self._conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM films WHERE id = %s", (id,))
         row = cursor.fetchone()

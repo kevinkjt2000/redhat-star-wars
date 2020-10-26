@@ -2,7 +2,7 @@
 This is a project I wrote during a weekend to show that I know a few of the common technologies used in a role I interviewed for. Inside, one will find python3, docker, mysql, API calls to https://swapi.dev/, test coverage, and some other things that I found time for.
 
 ### Usage
-The main script for completing the assignment is `task_one.py`. It is responsible for storing raw API data from swapi into MySQL, and then printing JSON data of 15 random characters with the film titles that they participated in. Here is the general shape of the output:
+The main script for completing the assignment is `task_one.py`. It is responsible for taking JSON data from SWAPI then caching character names, film titles, and their relation into MySQL. This data is use to print JSON of 15 random characters with the film titles that they participated in. Here is the general shape of the output:
 
 ```
 $ make run
@@ -62,3 +62,4 @@ make teardown
 * Reach 100% test coverage. 90% is good, but 100% is empirically better. And without the empire, Star Wars would be missing stories.
 * Cool README badges! The ones that show CI is passing, supported python versions, pypi version, code coverage, etc.
 * Run python/poetry from a docker in development. This would make it so that the only dev tools required would be make, docker, and docker-compose. Personally, I use asdf-python to manage multiple versions of python on my system. If others on the team liked that, I would document going that route instead.
+* Separate development database from test database. Make it easier to drop certain records from either of these aside from running `make bootstrap` to completely wipe docker volumes.
