@@ -54,6 +54,9 @@ make teardown
 ### Future Improvements
 * Adding some configuration options other than a hard-coded database connection to `localhost:3306` with a password that has to be stored in a `.env` file.
 * Configuring `task_one.py` as an entry point in `pyproject.toml`. Perhaps giving it a more descriptive name (random_star_wars_json?).
-* Run `make test` in a CI job and only allow PRs that pass that job to be merged to master branch.
+* Run `make test` in a CI job and only allow PRs that pass that job to be merged to master branch. Along these same lines, upload coverage to codecov and include that in the branch protection strategy.
 * Utilize sqlalchemy to shorten SQL boiler-plate code.
 * Add pylint between black formatting and pytest in `make test`, and deal with the fallout of tons of frivilous defaults that need to be tweaked to get a passing linter.
+* Reach 100% test coverage. 90% is good, but 100% is empirically better. And without the empire, Star Wars would be missing stories.
+* Cool README badges! The ones that show CI is passing, supported python versions, pypi version, code coverage, etc.
+* Run python/poetry from a docker in development. This would make it so that the only dev tools required would be make, docker, and docker-compose. Personally, I use asdf-python to manage multiple versions of python on my system. If others on the team liked that, I would document going that route instead.
