@@ -51,6 +51,8 @@ When you are satisfied, you can stop any running dockers with:
 make teardown
 ```
 
+![image](https://user-images.githubusercontent.com/4098674/97135290-de89df00-171d-11eb-9141-160ba2876dce.png)
+
 ### Future Improvements
 * Adding some configuration options other than a hard-coded database connection to `localhost:3306` with a password that has to be stored in a `.env` file.
 * Configuring `task_one.py` as an entry point in `pyproject.toml`. Perhaps giving it a more descriptive name (random_star_wars_json?).
