@@ -1,7 +1,7 @@
 import json
 import random
-from ._database import Database
-from ._swapi import get_character_count
+from redhat_star_wars._database import Database
+from redhat_star_wars._swapi import get_character_count
 
 
 def _gen_random_character_ids(amount):
