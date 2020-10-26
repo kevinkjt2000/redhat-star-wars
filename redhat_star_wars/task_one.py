@@ -7,7 +7,12 @@ def main():
     """See README.md for detailed description of task_one.py."""
     db = Database()
 
-    characters = [db.get_character_by_id(id) for id in gen_random_character_ids(15)]
+    characters = []
+    for character_id in gen_random_character_ids(15):
+        try:
+            characters.append(db.get_character_by_id(character_id))
+        except KeyError:
+            pass  # ignore characters that lack details
 
     films = {}
     for character in characters:

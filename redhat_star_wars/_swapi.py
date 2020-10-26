@@ -25,6 +25,8 @@ def get_character_by_id(id):
     """Returns swapi's json for an individual character."""
     resp = requests.get(urljoin(SWAPI_URL, "people/{id}/".format(id=id)))
     json = resp.json()
+    if json.get("detail", None) == "Not found":
+        raise KeyError(f"Character #{id} does not have any details.")
     return json
 
 

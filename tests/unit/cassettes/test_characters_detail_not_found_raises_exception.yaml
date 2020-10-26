@@ -1,0 +1,40 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+    method: GET
+    uri: https://swapi.dev/api/people/17/
+  response:
+    body:
+      string: '{"detail":"Not found"}'
+    headers:
+      Allow:
+      - GET, HEAD, OPTIONS
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Oct 2020 04:19:55 GMT
+      ETag:
+      - '"8bee5c3ad44d6c57f19e49e8e76ee09e"'
+      Server:
+      - nginx/1.16.1
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie
+      X-Frame-Options:
+      - SAMEORIGIN
+    status:
+      code: 404
+      message: NOT FOUND
+version: 1

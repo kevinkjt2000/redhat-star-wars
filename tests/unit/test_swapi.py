@@ -30,3 +30,9 @@ def test_random_number_generation_is_based_on_the_number_of_characters_from_swap
 ):
     for character_id in gen_random_character_ids(1000):
         assert 1 <= character_id and character_id <= mock_swapi.return_value
+
+
+@pytest.mark.vcr
+def test_characters_detail_not_found_raises_exception():
+    with pytest.raises(KeyError):
+        get_character_by_id(17)
