@@ -9,7 +9,26 @@ from redhat_star_wars.task_one import main, _gen_random_character_ids
 def test_output_matches_expected_shape(mock_gen_char_ids, capsys):
     main()
     captured = capsys.readouterr()
-    assert captured.out == json.dumps([{}], indent=4) + "\n"
+    assert (
+        captured.out
+        == json.dumps(
+            [
+                {
+                    "film": "A New Hope",
+                    "character": ["Luke Skywalker"],
+                },
+                {"film": "Attack of the Clones", "character": ["Sly Moore"]},
+                {"film": "Return of the Jedi", "character": ["Luke Skywalker"]},
+                {
+                    "film": "Revenge of the Sith",
+                    "character": ["Luke Skywalker", "Sly Moore"],
+                },
+                {"film": "The Empire Strikes Back", "character": ["Luke Skywalker"]},
+            ],
+            indent=4,
+        )
+        + "\n"
+    )
 
 
 @patch("redhat_star_wars.task_one.get_character_count", return_value=20)

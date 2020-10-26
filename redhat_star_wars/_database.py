@@ -75,6 +75,7 @@ class Database:
             )
             self._conn.commit()
 
+            character_data["films"] = set()
             for film_url in character["films"]:
                 # each film url ends with the id followed by a slash
                 film_id = film_url.split("/")[-2]
@@ -83,6 +84,7 @@ class Database:
                     "INSERT INTO character_films (character_id, film_id) VALUES (%s, %s)",
                     (id, film_id),
                 )
+                character_data["films"].add(film["title"])
             self._conn.commit()
 
             return character_data

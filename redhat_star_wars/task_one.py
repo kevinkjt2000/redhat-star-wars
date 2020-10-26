@@ -17,7 +17,6 @@ def main():
     characters = []
     for character_id in _gen_random_character_ids(15):
         characters.append(db.get_character_by_id(character_id))
-    print(characters)
 
     films = {}
     for character in characters:
@@ -25,10 +24,10 @@ def main():
             if film not in films:
                 films[film] = {"characters": []}
             films[film]["characters"].append(character["name"])
-    print(films)
 
     film_list = [
-        {"film": film, "character": list(film["characters"])} for film in films
+        {"film": film, "character": sorted(list(films[film]["characters"]))}
+        for film in sorted(films.keys())
     ]
     print(json.dumps(film_list, indent=4))
 
