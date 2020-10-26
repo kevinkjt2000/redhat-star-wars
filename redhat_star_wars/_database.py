@@ -5,6 +5,22 @@ from ._swapi import get_character_by_id, get_film_by_id
 
 
 class Database:
+    """This class could use the most improvement if I wanted to sink more time into it.
+
+    I'd start with sqlalchemy as mentioned by the README. There certainly is a
+    lot of boiler-plate code that deals with SQL. Proper ORM from sqlalchemy
+    would probably clean this up a lot. This held me back from caching more
+    data from SWAPI other than the bare minimum needed. I did not want to
+    baloon the size of the SQL code embedded here.
+    https://docs.sqlalchemy.org/en/13/orm/
+
+    After that, breaking up lengthy functions by separating caching concerns
+    into some other file. Imagine Cache and Database each doing one thing.
+    Separation of concerns. Single responsibililty principle. task_one.py would
+    leverage _swapi directly instead of Database, which would orchestrate
+    cache, database, and swapi_wrapper.
+    """
+
     def __init__(self):
         for attempt in range(10):
             try:

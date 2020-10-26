@@ -56,3 +56,4 @@ make teardown
 * Configuring `task_one.py` as an entry point in `pyproject.toml`. Perhaps giving it a more descriptive name (random_star_wars_json?).
 * Run `make test` in a CI job and only allow PRs that pass that job to be merged to master branch.
 * Utilize sqlalchemy to shorten SQL boiler-plate code.
+* Add pylint between black formatting and pytest in `make test`, and deal with the fallout of tons of frivilous defaults that need to be tweaked to get a passing linter.
