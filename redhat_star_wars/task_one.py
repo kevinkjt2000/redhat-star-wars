@@ -17,7 +17,9 @@ def main():
             films[film]["characters"].append(character["name"])
 
     film_list = [
-        {"film": film, "character": sorted(list(films[film]["characters"]))}
+        # It bothers me a little that character was not plural in the
+        # instructions, so I changed it to be plural
+        {"film": film, "characters": sorted(set(films[film]["characters"]))}
         for film in sorted(films.keys())
     ]
     print(json.dumps(film_list, indent=4))
