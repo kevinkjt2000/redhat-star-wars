@@ -17,6 +17,10 @@ class Database:
                     sleep(3)
                     continue
                 else:
+                    # I would test this branch, but ficticiously making up an
+                    # OperationalError with a different code seems wrong
+                    # somehow. I'd want to properly research a code that could
+                    # happen in practice.
                     raise exc
         else:
             raise RuntimeError("Unable to connect to MySQL database.")

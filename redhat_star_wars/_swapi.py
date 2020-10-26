@@ -1,3 +1,4 @@
+import random
 from urllib.parse import urljoin
 import requests
 
@@ -11,6 +12,13 @@ def get_character_count():
     resp = requests.get(urljoin(SWAPI_URL, "people/"))
     json = resp.json()
     return json["count"]
+
+
+def gen_random_character_ids(amount):
+    """Generates `amount` character ids, ranging from 1 to however many characters are in swapi."""
+    count = get_character_count()
+    for _ in range(amount):
+        yield random.randint(1, count)
 
 
 def get_character_by_id(id):

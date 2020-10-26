@@ -1,22 +1,13 @@
 import json
-import random
 from redhat_star_wars._database import Database
-from redhat_star_wars._swapi import get_character_count
-
-
-def _gen_random_character_ids(amount):
-    """Generates `amount` character ids, ranging from 1 to however many characters are in swapi."""
-    count = get_character_count()
-    for _ in range(amount):
-        yield random.randint(1, count)
+from redhat_star_wars._swapi import gen_random_character_ids
 
 
 def main():
+    """See README.md for detailed description of task_one.py."""
     db = Database()
 
-    characters = []
-    for character_id in _gen_random_character_ids(15):
-        characters.append(db.get_character_by_id(character_id))
+    characters = [db.get_character_by_id(id) for id in gen_random_character_ids(15)]
 
     films = {}
     for character in characters:
