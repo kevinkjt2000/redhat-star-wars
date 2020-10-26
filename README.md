@@ -35,6 +35,8 @@ make bootstrap  # in theory, this needs to be run only once
 make test
 ```
 
+The first test run may take several seconds longer due to waiting on MySQL to start properly. Subsequent test runs should happen much faster.
+
 If you do not have a plugin in your text editor that automatically uses black from poetry's virtual environment, you may want to run format before test:
 
 ```
